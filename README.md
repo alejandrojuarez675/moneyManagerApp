@@ -1,1 +1,4 @@
 # moneyManagerApp
+
+
+Ionic + AngularJs + Redux
