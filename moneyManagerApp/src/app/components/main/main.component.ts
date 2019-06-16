@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-main',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  inputs: String[]= ['1','pato','auto'];
+
+  constructor(
+    private store: Store<String>
+  ) {
+    this.store.subscribe( state => {
+      console.log(state);
+    });
+   }
 
   ngOnInit() {}
 
