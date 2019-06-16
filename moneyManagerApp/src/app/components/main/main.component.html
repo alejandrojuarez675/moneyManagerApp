@@ -1,4 +1,18 @@
-
-<ul>
-  <li *ngFor="let row of inputs">{{row}}</li>
-</ul>
+<div style="justify-content: flex-end">
+    <ion-card>
+      <div style="text-align-last: center">
+        <h3>Money Manager App</h3>
+      </div>
+      <div style="text-align-last: right"> 
+        <small>v0.0.1</small>
+      </div>
+    </ion-card>
+    
+    <div *ngIf="!loading">
+      <ng-container *ngFor="let row of inputs">
+        <ion-card>
+          {{row.id}}
+        </ion-card>
+      </ng-container>
+    </div>
+</div>

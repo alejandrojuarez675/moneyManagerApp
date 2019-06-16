@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { InputDTO } from 'src/app/models/InputDTO';
+import * as InitialAction from 'src/app/store/actions/InitialAction';
+import { AppState } from 'src/app/store/AppState';
 
 @Component({
   selector: 'app-main',
@@ -8,16 +11,20 @@ import { Store } from '@ngrx/store';
 })
 export class MainComponent implements OnInit {
 
-  inputs: String[]= ['1','pato','auto'];
+  inputs: InputDTO[];
+  loading: boolean;
 
   constructor(
-    private store: Store<String>
+    private store: Store<{ main: AppState }>
   ) {
-    this.store.subscribe( state => {
-      console.log(state);
+    this.store.select('main').subscribe( data => {
+      this.loading = data.loading;
+      this.inputs = data.inputs;
     });
-   }
-
-  ngOnInit() {}
+  }
+  
+  ngOnInit() {
+    this.store.dispatch(new InitialAction.InitAppAction());
+  }
 
 }

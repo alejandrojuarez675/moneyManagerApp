@@ -1,11 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { MainComponent } from './main.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [
+    MainComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    IonicModule.forRoot(),
   ]
 })
 export class MainModule { }
