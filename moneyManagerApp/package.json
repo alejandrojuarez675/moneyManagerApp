@@ -1,8 +1,8 @@
 {
   "name": "moneyManagerApp",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Alejandro Juarez",
+  "homepage": "https://github.com/alejandrojuarez675/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
