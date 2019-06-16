@@ -1,18 +1,42 @@
-<div style="justify-content: flex-end">
+<ion-content>
+  <div style="justify-content: flex-end">
     <ion-card>
       <div style="text-align-last: center">
         <h3>Money Manager App</h3>
       </div>
-      <div style="text-align-last: right"> 
+      <div style="text-align-last: right">
         <small>v0.0.1</small>
       </div>
     </ion-card>
-    
+
     <div *ngIf="!loading">
-      <ng-container *ngFor="let row of inputs">
+      <ion-card>
+        <ng-container *ngFor="let account of accounts">
+          <div>
+            <h4>
+              {{account.desc.toUpperCase()}} -- <b>${{account.count}}</b>
+            </h4>
+          </div>
+        </ng-container>
+      </ion-card>
+
+      <ng-container *ngFor="let day of keys">
         <ion-card>
-          {{row.id}}
+          <div style="text-align-last: right">
+            <small>{{day}}</small>
+          </div>
+
+          <ng-container *ngFor="let row of grid.get(day)">
+            <div *ngIf="row.movement">
+              It's a movement
+            </div>
+            <div *ngIf="row.interchange">
+              It's a interchange
+            </div>
+          </ng-container>
         </ion-card>
       </ng-container>
+
     </div>
-</div>
+  </div>
+</ion-content>

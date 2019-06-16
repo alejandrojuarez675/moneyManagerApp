@@ -6,7 +6,6 @@ import { PaymentDTO } from './PaymentDTO';
 
 export class MovementDTO extends BaseEntityDTO{
     movementType: MovementTypeDTO;
-    input: InputDTO;
     mount: number;
     coin: CoinDTO;
     payment: PaymentDTO;
