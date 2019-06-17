@@ -5,9 +5,7 @@ import { MovementDTO } from '../models/MovementDTO';
 import { MovementTypeDTO, TypeMovementType } from '../models/MovementTypeDTO';
 
 export class AppState{
-    accounts: AccountDTO[];
     inputs: InputDTO[];
-    movementTypes: MovementTypeDTO[];
     loading: boolean;
 }
 
@@ -27,12 +25,6 @@ function initState(): AppState {
         });
     }
     state.inputs.sort((a, b) => b.date.getTime() - a.date.getTime());
-
-    state.accounts = [];
-    state.accounts.push({ id: 0, count: 10000, coin: { id: 0, desc: '$' }, desc: 'Efectivo' });
-    state.accounts.push({ id: 1, count: 180, coin: { id: 0, desc: 'U$S' }, desc: 'Dolares' });
-    state.accounts.push({ id: 2, count: 2000, coin: { id: 0, desc: '$' }, desc: 'Banco Nación' });
-
     return state;
 }
 

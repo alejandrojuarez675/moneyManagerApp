@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
   accounts: AccountDTO[];
 
   constructor(
-    private store: Store<{ main: AppState }>
+    private store: Store<{ main: AppState, account: AccountDTO[] }>
   ) {
 
     this.store.select('main').subscribe( data => {
@@ -37,10 +37,12 @@ export class MainComponent implements OnInit {
         list.push(x);
         this.grid.set(key, list);
       });
-
-      this.accounts = data.accounts;
-
     });
+
+    this.store.select('account').subscribe( data => {
+      this.accounts = data;
+    });
+
   }
   
   ngOnInit() {
