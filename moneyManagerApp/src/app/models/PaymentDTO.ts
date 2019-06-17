@@ -3,6 +3,6 @@ import { AccountDTO } from './AccountDTO';
 
 export class PaymentDTO extends BaseEntityDTO{
     desc: string;
-    img: string;
+    img?: string;
     account: AccountDTO;
 }

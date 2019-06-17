@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainModule } from './components/main/main.module';
 import { MainReducer } from './store/reducers/MainReducer';
+import { LoginReducer } from './store/reducers/LoginReducer';
+import { TypeMovementReducer } from './store/reducers/TypeMovementReducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,7 @@ import { MainReducer } from './store/reducers/MainReducer';
     MainModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    StoreModule.forRoot({main: MainReducer}),
+    StoreModule.forRoot({ main: MainReducer, login: LoginReducer, types: TypeMovementReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

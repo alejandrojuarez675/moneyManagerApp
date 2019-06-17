@@ -1,5 +1,5 @@
 <ion-content>
-  <div style="justify-content: flex-end">
+  <div style="justify-content: flex-end;">
     <ion-card>
       <div style="text-align-last: center">
         <h3>Money Manager App</h3>
@@ -14,7 +14,7 @@
         <ng-container *ngFor="let account of accounts">
           <div>
             <h4>
-              {{account.desc.toUpperCase()}} -- <b>${{account.count}}</b>
+              {{account.desc.toUpperCase()}} - <b>{{account.coin.desc}} {{account.count}}</b>
             </h4>
           </div>
         </ng-container>
@@ -28,10 +28,10 @@
 
           <ng-container *ngFor="let row of grid.get(day)">
             <div *ngIf="row.movement">
-              It's a movement
+              {{row.movement.movementType.desc}} - {{row.movement.coin.desc}} {{row.movement.mount}}
             </div>
             <div *ngIf="row.interchange">
-              It's a interchange
+              {{row.interchange.desc}} - {{row.interchange.coin.desc}} {{row.interchange.amountFrom}}
             </div>
           </ng-container>
         </ion-card>
