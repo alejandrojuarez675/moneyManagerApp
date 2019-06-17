@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
   accounts: AccountDTO[];
 
   constructor(
-    private store: Store<{ main: AppState, account: AccountDTO[] }>
+    private store: Store<{ main: AppState}>
   ) {
 
     this.store.select('main').subscribe( data => {
@@ -37,10 +37,8 @@ export class MainComponent implements OnInit {
         list.push(x);
         this.grid.set(key, list);
       });
-    });
 
-    this.store.select('account').subscribe( data => {
-      this.accounts = data;
+      this.accounts = data.accounts;
     });
 
   }

@@ -13,7 +13,6 @@ import { MainModule } from './components/main/main.module';
 import { LoginReducer } from './store/reducers/LoginReducer';
 import { MainReducer } from './store/reducers/MainReducer';
 import { TypeMovementReducer } from './store/reducers/TypeMovementReducer';
-import { AccountReducer } from './store/reducers/AccountReducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +26,6 @@ import { AccountReducer } from './store/reducers/AccountReducer';
       main: MainReducer, 
       login: LoginReducer, 
       types: TypeMovementReducer,
-      account: AccountReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

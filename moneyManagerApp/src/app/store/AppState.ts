@@ -1,11 +1,12 @@
-import { AccountDTO } from '../models/AccountDTO';
 import { InputDTO } from '../models/InputDTO';
 import { InterchangeDTO } from '../models/InterchangeDTO';
 import { MovementDTO } from '../models/MovementDTO';
-import { MovementTypeDTO, TypeMovementType } from '../models/MovementTypeDTO';
+import { TypeMovementType } from '../models/MovementTypeDTO';
+import { AccountDTO } from '../models/AccountDTO';
 
 export class AppState{
     inputs: InputDTO[];
+    accounts: AccountDTO[];
     loading: boolean;
 }
 
@@ -25,6 +26,9 @@ function initState(): AppState {
         });
     }
     state.inputs.sort((a, b) => b.date.getTime() - a.date.getTime());
+
+    state.accounts = initialDefaultAccount();
+    
     return state;
 }
 
@@ -48,4 +52,12 @@ function initialInterchange(): InterchangeDTO {
     result.paymentTo = { id: 1, desc: 'U$S', account: { id: 0 } };
     result.coin = { id: 0, desc: '$'};
     return result;
+}
+
+function initialDefaultAccount(): AccountDTO[] {
+    let accounts: AccountDTO[] = [];
+    accounts.push({ id: 0, count: 10000, coin: { id: 0, desc: '$' }, desc: 'Efectivo' });
+    accounts.push({ id: 1, count: 180, coin: { id: 0, desc: 'U$S' }, desc: 'Dolares' });
+    accounts.push({ id: 2, count: 2000, coin: { id: 0, desc: '$' }, desc: 'Banco Nación' });
+    return accounts;
 }
